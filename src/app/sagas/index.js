@@ -4,7 +4,7 @@ import {
   call,
   put,
   takeLatest,
-  fork
+  all
 } from 'redux-saga/effects';
 
 import {
@@ -15,22 +15,21 @@ import {
 
 const helloWorldApi = () => Promise.resolve({});
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
-function* helloWorld({ payload }) {
+function* helloWorld({ text }) {
   try {
-    const text = yield call(helloWorldApi, payload);
-    yield put(helloWorldSuccess(text));
+    const response = yield call(helloWorldApi, { text });
+    yield put(helloWorldSuccess(response));
   } catch ({ message = 'No error message defined' }) {
     yield put(helloWorldFailure(message));
   }
 }
 
-export function* helloWorldSaga() {
+export function* watchHelloWorld() {
   yield takeLatest(HELLO_WORLD_REQUESTED, helloWorld);
 }
 
 export default function* rootSaga() {
-  yield [
-    fork(helloWorldSaga)
-  ];
+  yield all([
+    watchHelloWorld()
+  ]);
 }
