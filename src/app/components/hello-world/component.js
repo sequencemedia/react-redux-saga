@@ -14,12 +14,12 @@ export default class App extends Component {
   }
 
   render() {
-    const { helloWorld } = this.props;
+    const { message } = this.props;
 
     return (
       <div className="hello-world">
         <h1>
-          {helloWorld}
+          {message}
         </h1>
         <button type="submit" onClick={this.handleClick}>
           Click Me
@@ -31,10 +31,10 @@ export default class App extends Component {
 
 App.defaultProps = {
   dispatch: () => { /* no op */ },
-  helloWorld: 'Hello, World!'
+  message: 'Hello, World!'
 };
 
 App.propTypes = {
   dispatch: PropTypes.func,
-  helloWorld: PropTypes.string
+  message: PropTypes.string
 };

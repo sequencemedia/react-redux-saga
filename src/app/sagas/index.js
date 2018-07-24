@@ -13,14 +13,14 @@ import {
   helloWorldFailure
 } from 'app/actions/hello-world';
 
-const helloWorldApi = ({ text }) => Promise.resolve(text);
+const helloWorldApi = ({ message }) => Promise.resolve(message);
 
-function* helloWorld({ text }) {
+function* helloWorld({ message }) {
   try {
-    const response = yield call(helloWorldApi, { text });
+    const response = yield call(helloWorldApi, { message });
     yield put(helloWorldSuccess(response));
-  } catch ({ message = 'No error message defined' }) {
-    yield put(helloWorldFailure(message));
+  } catch ({ message: m = 'No error message defined' }) {
+    yield put(helloWorldFailure(m));
   }
 }
 

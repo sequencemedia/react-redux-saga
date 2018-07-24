@@ -5,7 +5,7 @@ import {
 
 const initialState = {};
 
-export const helloWorld = (state, { text }) => ({ ...state, helloWorld: text });
+export const helloWorld = (state, { message }) => ({ ...state, message });
 
 export default function (state = initialState, { type, ...action }) {
   switch (type) {

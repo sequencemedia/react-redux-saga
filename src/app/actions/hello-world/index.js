@@ -10,6 +10,6 @@ export const HELLO_WORLD_FAILED = 'HELLO_WORLD_FAILED';
 /*
  *  Action creators
  */
-export const requestHelloWorld = text => ({ type: HELLO_WORLD_REQUESTED, text });
-export const helloWorldSuccess = text => ({ type: HELLO_WORLD_SUCCEEDED, text });
+export const requestHelloWorld = message => ({ type: HELLO_WORLD_REQUESTED, message });
+export const helloWorldSuccess = message => ({ type: HELLO_WORLD_SUCCEEDED, message });
 export const helloWorldFailure = message => ({ type: HELLO_WORLD_FAILED, message });
