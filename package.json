@@ -15,11 +15,18 @@
     "verbose": true,
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**/*.js",
-      "!**/node_modules/**",
-      "!src/**/__tests__/**"
+      "**/*.js"
     ],
-    "coverageDirectory": "coverage"
+    "coverageDirectory": "coverage",
+    "testMatch": [
+      "**/__tests__/**/*.js"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules"
+    ],
+    "roots": [
+      "./src"
+    ]
   },
   "repository": {
     "type": "git",
