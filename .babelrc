@@ -17,6 +17,7 @@
     "stage-1"
   ],
   "plugins": [
+    "transform-runtime",
     "transform-react-jsx",
     [
       "module-resolver", {

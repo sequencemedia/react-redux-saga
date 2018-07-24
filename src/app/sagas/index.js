@@ -13,7 +13,7 @@ import {
   helloWorldFailure
 } from 'app/actions/hello-world';
 
-const helloWorldApi = () => Promise.resolve({});
+const helloWorldApi = ({ text }) => Promise.resolve(text);
 
 function* helloWorld({ text }) {
   try {
