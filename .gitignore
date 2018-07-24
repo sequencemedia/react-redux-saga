@@ -339,3 +339,6 @@ _Pvt_Extensions
 
 # Webpack/Babel
 lib
+
+# Jest coverage
+coverage
