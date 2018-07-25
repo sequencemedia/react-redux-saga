@@ -8,11 +8,17 @@ import createSagaMiddleware from 'redux-saga';
 import reducers from 'app/reducers';
 import sagas from 'app/sagas';
 
-const sagaMiddleware = createSagaMiddleware();
-
+/*
+ *  "Before running a Saga, you must mount the Saga middleware on the Store using applyMiddleware"
+ */
 export default function configureStore(state) {
   /*
-   *  Mount the store
+   *  Create the Saga middleware
+   */
+  const sagaMiddleware = createSagaMiddleware();
+
+  /*
+   *  Mount the Store and the Saga middleware
    */
   const store = createStore(
     reducers,
@@ -23,7 +29,7 @@ export default function configureStore(state) {
   );
 
   /*
-   *  Initialise the sagas
+   *  Run the Sagas
    */
   sagaMiddleware.run(sagas);
 
