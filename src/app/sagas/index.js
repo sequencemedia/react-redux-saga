@@ -13,11 +13,11 @@ import {
   helloWorldFailure
 } from 'app/actions/hello-world';
 
-const helloWorldApi = ({ message }) => Promise.resolve(message);
+import * as api from 'app/api/hello-world';
 
 function* helloWorld({ message }) {
   try {
-    const response = yield call(helloWorldApi, { message });
+    const response = yield call(api.helloWorld, { message });
     yield put(helloWorldSuccess(response));
   } catch ({ message: m = 'No error message defined' }) {
     yield put(helloWorldFailure(m));
