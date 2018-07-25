@@ -18,7 +18,7 @@ storiesOf('App', module)
       </Provider>
     );
   })
-  .add('Initial state', () => {
+  .add('With initial state', () => {
     const state = { helloWorld: { message: 'From initial state' } };
     const store = configureStore(state);
 
