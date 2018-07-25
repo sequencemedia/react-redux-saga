@@ -19,8 +19,8 @@ function* helloWorld({ message }) {
   try {
     const response = yield call(api.helloWorld, { message });
     yield put(helloWorldSuccess(response));
-  } catch ({ message: m = 'No error message defined' }) {
-    yield put(helloWorldFailure(m));
+  } catch ({ message: response = 'No error message defined' }) {
+    yield put(helloWorldFailure(response));
   }
 }
 
