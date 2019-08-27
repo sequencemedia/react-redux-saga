@@ -1,19 +1,34 @@
+
+require('@babel/register')({
+  ignore: [
+    /node_modules/
+  ]
+});
+
 const path = require('path');
+
 const {
-  DefinePlugin
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin');
+const {
+  EnvironmentPlugin
 } = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-const outputPath = path.resolve('./lib');
+const srcPath = path.resolve('./src/index.js');
+const libPath = path.resolve('./lib');
 
-module.exports = {
-  mode: 'development',
+module.exports = ({ NODE_ENV = 'production' } = process.env) => ({
+  mode: NODE_ENV,
   entry: {
-    app: './src/index.js'
+    app: srcPath
   },
   output: {
-    path: outputPath,
+    path: libPath,
     filename: '[name].js'
+  },
+  stats: {
+    colors: true
   },
   module: {
     rules: [
@@ -24,15 +39,25 @@ module.exports = {
       }
     ]
   },
-  devtool: 'sourcemap',
+  devtool: 'source-map',
   plugins: [
-    new DefinePlugin({
-      'process.env.NODE_ENV': '"development"'
+    new CleanWebpackPlugin({
+      verbose: false,
+      cleanOnceBeforeBuildPatterns: [
+        path.join(libPath, 'js').concat('/*.js'),
+        path.join(libPath, 'js').concat('/*.js.map')
+      ]
     }),
+    new EnvironmentPlugin({ NODE_ENV }),
     new UglifyJsPlugin({
+      uglifyOptions: {
+        output: {
+          comments: false
+        }
+      },
       parallel: true,
       sourceMap: true,
       cache: true
     })
   ]
-};
+});

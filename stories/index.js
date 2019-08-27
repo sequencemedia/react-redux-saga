@@ -1,5 +1,3 @@
-/* eslint import/no-extraneous-dependencies: "off" */
-
 import React from 'react';
 import { Provider } from 'react-redux';
 import { storiesOf } from '@storybook/react';
@@ -8,8 +6,8 @@ import configureStore from 'app/store';
 import Routes from 'app/routes';
 
 storiesOf('App', module)
-  .add('Default', () => {
-    const state = {};
+  .add('With initial state', () => {
+    const state = { helloWorld: { message: 'With initial state' } };
     const store = configureStore(state);
 
     return (
@@ -18,8 +16,8 @@ storiesOf('App', module)
       </Provider>
     );
   })
-  .add('With initial state', () => {
-    const state = { helloWorld: { message: 'From initial state' } };
+  .add('Without initial state', () => {
+    const state = {};
     const store = configureStore(state);
 
     return (
