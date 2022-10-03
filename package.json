@@ -2,7 +2,13 @@
   "name": "react-redux-saga",
   "version": "1.0.0",
   "description": "React + Redux + Saga",
+  "private": true,
   "main": "index.js",
+  "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/sequencemedia/react-redux-saga.git"
+  },
   "scripts": {
     "lint": "eslint src stories *.js",
     "lint:fix": "npm run lint -- --fix",
@@ -10,30 +16,6 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "jest": {
-    "bail": true,
-    "verbose": true,
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "**/*.js"
-    ],
-    "coverageDirectory": "coverage",
-    "testMatch": [
-      "**/__tests__/**/*.js"
-    ],
-    "testPathIgnorePatterns": [
-      "node_modules"
-    ],
-    "roots": [
-      "./src"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com/sequencemedia/react-redux-saga.git"
-  },
-  "author": "Jonathan Perry for Sequence Media Limited",
-  "private": true,
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -77,5 +59,23 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7"
+  },
+  "jest": {
+    "bail": true,
+    "verbose": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coverageDirectory": "coverage",
+    "testMatch": [
+      "**/__tests__/**/*.js"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules"
+    ],
+    "roots": [
+      "./src"
+    ]
   }
 }
