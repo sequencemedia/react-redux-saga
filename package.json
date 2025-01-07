@@ -4,17 +4,21 @@
   "description": "React + Redux + Saga",
   "private": true,
   "main": "index.js",
-  "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
+  "author": {
+    "name": "Jonathan Perry for Sequence Media Limited",
+    "email": "sequencemedia@sequencemedia.net",
+    "url": "https://sequencemedia.net"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com/sequencemedia/react-redux-saga.git"
   },
   "scripts": {
+    "build-storybook": "build-storybook",
     "lint": "eslint src stories *.js",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "jest"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
