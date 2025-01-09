@@ -339,6 +339,11 @@ _Pvt_Extensions
 
 # Webpack/Babel
 lib
+ 
+.nvmrc
+.npmrc 
+.depsrc
+
 
 # Jest coverage
 coverage
